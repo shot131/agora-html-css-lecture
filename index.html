@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Agora - лекция по HTML и CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <link href="src/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="src/images/agora-leading.jpg" class="d-block mx-lg-auto img-fluid" alt="Agora" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold lh-1 mb-3">Переопределиние CSS на платформе <span style="color: #FF4D4D;">AGORA</span></h1>
+                <p class="lead">На живых примерах посмотрим, что мождно сделать с помощью переопределение стилей сайта, никакой магии, только пара костылей на чистом CSS!</p>
+                <p class="small text-muted">
+                    Это не шутка, всё что вы увидите в рамках данной лекции <mark>на самом деле жуткие костыли</mark> и ни в коем случае не рекомендуется к использованию в продакшн.</span>
+                </p>
+          </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <h2 class="h1">Основы HTML</h2>
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-8">
+                <p><a target="_blank" href="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML</a> (от англ. HyperText Markup Language — язык гипертекстовой разметки) — стандартизированный язык гипертекстовой разметки документов для просмотра веб-страниц в браузере. Веб-браузер получает HTML документ от сервера и интерпретируют его в визуальное представление, на данный момент поддерживается встраивание практически любого типа информации, тест, звук, графика и т.д.</p>
+                <p>HTML страница строится из отдельных элементов, которые называются HTML-тегами, они записываются с использованием угловых скобок, браузеры не отображают их, но используют для интерпретации содержимого страницы.</p>
+                <p>В основном HTML-теги несут специальное значение, например тег <mark>&lt;img&gt;</mark> служит для встраивания в HTML-документ изображений, <mark>&lt;p&gt;</mark> обозначает параграф текста, <mark>&lt;iframe&gt;</mark> позволяет встраивать другие HTML-документы в текущий, и это далеко не <a target="_blank" href="https://developer.mozilla.org/ru/docs/Web/HTML/Element">полный перечень</a> HTML-тегов.</p>
+            </div>
+            <div class="col-12 col-lg-4">
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Мета заголовок страницы&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Содержимое страницы
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <p class="small text-muted">Пример простейшей HTML-страницы.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row align-items-stretch">
+            <div class="col-12 col-lg-4">
+                <p>Есть и более общие элементы, которые не несут в себе какой-то специальный контекст, например, тег <mark>&lt;div&gt;</mark> служит для разделения содержимого страницы на семантические блоки и по умолчанию никак не влияет на отображение, пока не будет стилизован.</p>
+            </div>
+            <div class="col-6 col-lg-4">
+                <div class="div-img-example"></div>
+            </div>
+            <div class="col-6 col-lg-4 text-center">
+                <img class="img-example img-fluid" src="src/images/true-img.png" alt="Пример изображения" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-8">
+                <p>HTML в отличие от XML не чувствителен к ошибкам, например можно использовать несуществующие теги или вкладывать теги друг в друга, которые этого не предполагают, документ в любом случае отработает и каким-то образом отрисуется браузером, но это не значит что так можно делать, спецификация может измениться в любой момент, и есть большой шанс получить непредвиденное поведение, поэтому лучше так не делать.</p>
+            </div>
+
+            <div class="col-6 col-md-8 pt-3">
+<pre><code>&lt;some-non-existent-tag&gt;Пример несуществующего тега.&lt;/some-non-existent-tag&gt;</code></pre>
+            </div>
+            <div class="col-6 col-md-4 pt-3">
+                <some-non-existent-tag>Пример несуществующего тега.</some-non-existent-tag>
+            </div>
+
+            <div class="col-6 col-md-8 pt-3">
+<pre><code>&lt;не-существует&gt;Тоже не существует, но уже не так как предыдущий&lt;/не-существует&gt;</code></pre>
+            </div>
+            <div class="col-6 col-md-4 pt-3">
+                <не-существует>Тоже не существует, но уже не так как предыдущий</не-существует>
+            </div>
+
+            <div class="col-6 col-md-8 pt-3">
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;Элемент нормального списка 1.&lt;/li&gt;
+    &lt;li&gt;Элемент нормального списка 2.&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+            <div class="col-6 col-md-4 pt-3">
+                <ul>
+                    <li>Элемент нормального списка 1</li>
+                    <li>Элемент нормального списка 2</li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-8 pt-3">
+<pre><code>&lt;div&gt;
+    &lt;li&gt;Элемент неправильно списка 1.&lt;/li&gt;
+    &lt;li&gt;Элемент неправильно списка 2.&lt;/li&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="col-6 col-md-4 pt-3">
+                <div>
+                    <li>Элемент неправильно списка 1</li>
+                    <li>Элемент неправильно списка 2</li>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-8 pt-3">
+<pre><code>&lt;table class="table"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Ячейка 1&lt;/td&gt;
+        &lt;td&gt;Ячейка 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Ячейка 3&lt;/td&gt;
+        &lt;td&gt;Ячейка 4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;div&gt;
+        &lt;div&gt;А это работать не будет&lt;/div&gt;
+        &lt;div>Даже если очень хочется&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            <div class="col-6 col-md-4 pt-3">
+                <table class="table">
+                    <tr>
+                        <td>Ячейка 1</td>
+                        <td>Ячейка 2</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 3</td>
+                        <td>Ячейка 4</td>
+                    </tr>
+                    <div>
+                        <div>А это работать не будет</div>
+                        <div>Даже если очень хочется</div>
+                    </div>
+                </table>
+            </div>
+
+            <div class="col-6 col-md-8 pt-3">
+<pre><code>&lt;p&gt;Так делать тоже &lt;div&gt;нельзя&lt;/div&gt;&lt;/p&gt;</code></pre>
+            </div>
+            <div class="col-6 col-md-4 pt-3">
+                <p>Так делать тоже <div>нельзя</div></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <p>Структура HTML-документа представляет из себя дерево, его называют DOM (от англ. Document Object Model), HTML-теги вкладываются друг в друга для получения нужного результата. Наравне с основной структурой HTML-документа существует вспомогательная так называемый теневой DOM (от англ. Shadow DOM), в основном он служит для отрисовки внутренностей HTML-тегов, например, <mark>&lt;select&gt;</mark> или скроллбар окна браузера, как правило на такие элементы нельзя повлиять извне, или доступ к ним будет сильно ограничен.</p>
+                <p>По умолчанию блоки страницы выстраиваются сверху вниз, независимо от своего семантического значения, конечно если это не inline элементы, которые выстраиваются в строку, например ссылку можно разместить внутри текста это поведение HTML-тега <mark>&lt;a&gt;</mark> по умолчанию, но его можно изменить с помощью языка стилей CSS.</p>
+            </div>
+            <div class="col-12 col-lg-4">
+                <p><select class="form-select">
+                    <option value="1" selected>Значение 1</option>
+                    <option value="1">Значение 2</option>
+                </select></p>
+                <p><input class="form-control" type="datetime-local"></p>
+                <p><input class="form-range" type="range"></p>
+                <p><input class="form-control" type="color"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <h2 class="h1">Основы CSS</h2>
+    </div>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+    >
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

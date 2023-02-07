@@ -1,0 +1,10 @@
+.div-img-example {
+    background-image: url(images/div-img.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    height: 100%;
+}
+.img-example {
+    margin: 0px auto;
+}
