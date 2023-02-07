@@ -74,14 +74,14 @@
             </div>
 
             <div class="col-6 col-md-8 pt-3">
-<pre><code>&lt;some-non-existent-tag&gt;Пример несуществующего тега.&lt;/some-non-existent-tag&gt;</code></pre>
+                <pre><code>&lt;some-non-existent-tag&gt;Пример несуществующего тега.&lt;/some-non-existent-tag&gt;</code></pre>
             </div>
             <div class="col-6 col-md-4 pt-3">
                 <some-non-existent-tag>Пример несуществующего тега.</some-non-existent-tag>
             </div>
 
             <div class="col-6 col-md-8 pt-3">
-<pre><code>&lt;не-существует&gt;Тоже не существует, но уже не так как предыдущий&lt;/не-существует&gt;</code></pre>
+                <pre><code>&lt;не-существует&gt;Тоже не существует, но уже не так как предыдущий&lt;/не-существует&gt;</code></pre>
             </div>
             <div class="col-6 col-md-4 pt-3">
                 <не-существует>Тоже не существует, но уже не так как предыдущий</не-существует>
@@ -147,7 +147,7 @@
             </div>
 
             <div class="col-6 col-md-8 pt-3">
-<pre><code>&lt;p&gt;Так делать тоже &lt;div&gt;нельзя&lt;/div&gt;&lt;/p&gt;</code></pre>
+                <pre><code>&lt;p&gt;Так делать тоже &lt;div&gt;нельзя&lt;/div&gt;&lt;/p&gt;</code></pre>
             </div>
             <div class="col-6 col-md-4 pt-3">
                 <p>Так делать тоже <div>нельзя</div></p>
@@ -175,12 +175,98 @@
 
     <div class="container py-5">
         <h2 class="h1">Основы CSS</h2>
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-8">
+        <div class="row">
+            <div class="col-12 col-lg-6">
                 <p><a target="_blank" href="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/CSS_basics">CSS</a> (от англ. Cascading Style Sheets - каскадные таблицы стилей) - это специальный язык разметки стилей, которые могут применяться к HTML-документу, был создан для отделения логики отвечающей за внешний вид от разметки страницы. Он позволяет изменить шрифт, цвет, размер или позицию элементов на странице, а также даёт возможность изменять эти свойства плавно, получая эффект анимирования.</p>
+                <p>CSS позволяет изменять внешний вид элементов на HTML-странице в определённых пределах, путём связывания HTML-тега с нужным стилем через так называемый селектор. Селектором может выступать как само название тега, например <mark>div</mark>, так и любой атрибут <mark>a[href=”http://example.com/”]</mark>, идентификатор <mark>#example-id</mark> или класс <mark>.example-class</mark>.</p>
+                <p>Механизм селекторов очень гибок, можно выбрать множество элементов, или указать какой-то конкретный, выбрать всех прямых потомков, соседей, чётные или нечётный элементы и ещё <a href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Selectors">много всего</a>.</p>
             </div>
-            <div class="col-12 col-lg-4">
-                
+            <div class="col-12 col-lg-6">
+                <p class="codepen" data-height="366" data-default-tab="css,result" data-slug-hash="dyjLBMr" data-editable="true" data-user="shot131" style="height: 366px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/shot131/pen/dyjLBMr">
+                    Untitled</a> by Alex (<a href="https://codepen.io/shot131">@shot131</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p>В названии CSS, не просто так есть слово <mark>каскадные</mark>, любой CSS-свойство, которые было определно для родительского элемента, будет действовать и на потомка, если конечно его не перекроет более специфичный стиль.</p>
+                <p>Например, текст внутри параграфа должен быть черного цвета, пока его не перекроет какое-то более специфичное правило или дефолтный стиль элемента, определённый в браузере по умолчанию.</p>
+                <p>Важно понимать, что правила стилизации применяются сверху вниз, то есть правило которые было определено ниже, имеет больший вес, если конечно у них одинаковая <a target="_blank" href="https://developer.mozilla.org/ru/docs/Web/CSS/Specificity">специфичность</a>, иначе будут применяться более специфичные правила.</p>
+                <p>Есть способ повысить специфичность определённого свойства, независимо от того, насколько специфичен сам селектор, для этого нужно использовать ключевое слово <mark>!important</mark>, именно так с восклицательным знаком впереди, но будте аккуратны, более специфичный селектор с большим весом используя !important может его переопределить.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="codepen" data-height="405" data-default-tab="css,result" data-slug-hash="MWBRMVV" data-editable="true" data-user="shot131" style="height: 405px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/shot131/pen/MWBRMVV">
+                    Untitled</a> by Alex (<a href="https://codepen.io/shot131">@shot131</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p>Наравне с обычными селекторами существуют так называемые <a target="_blank" href="https://developer.mozilla.org/ru/docs/Web/CSS/Pseudo-classes">псевдоклассы</a> и <a target="_blank" href="https://developer.mozilla.org/ru/docs/Web/CSS/Pseudo-elements">псевдоэлементы</a>, с их помощью можно задавать стиль для несуществующих элементов или их мета-состояний, например, можно задать класс для ссылки при наведении, нажатия кнопки, или добавить элемент перед другим элементом.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="codepen" data-height="283" data-default-tab="css,result" data-slug-hash="VwBNoZv" data-editable="true" data-user="shot131" style="height: 283px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/shot131/pen/VwBNoZv">
+                    Untitled</a> by Alex (<a href="https://codepen.io/shot131">@shot131</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p><a target="_blank" href="https://developer.mozilla.org/ru/docs/Web/CSS/display">display</a> - это очень важное свойство, оно влияет на отображение элемента, то как он ведёт себя в общем потоке DOM:</p>
+                <ul>
+                    <li><mark>none</mark> - скрыт и не отображается на странице, включая все вложенные элементы.</li>
+                    <li><mark>block</mark> - элемент занимает так называемый "этаж", то есть пытается занять всю предоставленную ширину родительского контейнера.</li>
+                    <li><mark>inline</mark> - выстраивается с соседями в строку, так же на такие элементы не действуют некоторые стили присущие блочным элементам, например внешние вертикальные отступы (margin-top, margin-bottom).</li>
+                    <li><mark>inline-block</mark> - что-то среднее между block и inline, пытается выстроится с соседями в строку, но при этом ведёт себя как блок, то есть может иметь в том числе вертикальные отступы.</li>
+                    <li><mark>flex</mark> - сам элемент ведёт себя как блочный, на всех прямых потомков распространяется flexbox layout.</li>
+                    <li><mark>grid</mark> - сам элемент ведёт себя как блочный, на всех прямых потомков распространяется grid layout.</li>
+                </ul>
+                <p>Кроме типов отображения названных выше, существуют ещё более специфичные, которые применяются в более узкой диапазоне, например <mark>table</mark> и <mark>list-item</mark>.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="codepen" data-height="440" data-default-tab="css,result" data-slug-hash="QWBPeBz" data-editable="true" data-user="shot131" style="height: 440px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/shot131/pen/QWBPeBz">
+                    Untitled</a> by Alex (<a href="https://codepen.io/shot131">@shot131</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">position</a> - ещё одно важное свойство, элементы страницы располагаются на экране согласно блочной модели, но если вдруг нужно сместить какой-то элемент, при этом не изменяя его отступы или размер, или сделать так, чтобы его положение не влияло на другие элементы DOM дерева, можно использовать смещение. Всего есть несколько типов position:</p>
+                <ul>
+                    <li><mark>static</mark> - это позиция по умолчанию, смещение никак не учитывается.</li>
+                    <li><mark>relative</mark> - учитывается смещение и влияет на соседние элементы.</li>
+                    <li><mark>absolute</mark> - учитывается смещение и не влияет на соседние элементы, смещение считается от ближайшего родителя у которого position не static, в противном случае смещение считается от границ окна.</li>
+                    <li><mark>fixed</mark> - учитывается смещение, не влияет на соседние элементы, смещение всегда считается от границ окна и как бы фиксирует элемент на экране в заданной позиции.</li>
+                    <li><mark>sticky</mark> - что-то среднее между relative и fixed, позиция элемента учитывает смещение, считается от ближайшего родителя у которого position не static, но в случае если в контейнере есть элементы большего размера, при скролле страницы элемент начнёт вести себя как fixed в пределах родительского блока.</li>
+                </ul>
+                <p>На позицию элемента также может влиять свойство <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">transform</a>, например, можно сместить элемент от его текущей позиции, или повернуть, а свойство <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions">transition</a> позволяет сделать переход плавным и получить эффект анимации.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="codepen" data-height="446" data-default-tab="css,result" data-slug-hash="poZmzwJ" data-editable="true" data-user="shot131" style="height: 446px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/shot131/pen/poZmzwJ">
+                    Untitled</a> by Alex (<a href="https://codepen.io/shot131">@shot131</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
             </div>
         </div>
     </div>
@@ -193,5 +279,6 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 </body>
 </html>
